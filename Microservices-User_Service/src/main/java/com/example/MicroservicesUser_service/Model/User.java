@@ -7,7 +7,7 @@ public class User {
     private Long userId;
     private String name;
     private String phone;
-    List<Contact> contacts=new ArrayList<>();
+    List<Contact> contacts=new ArrayList<>();  //This will be load through different microservice
 
     public User() {
     }

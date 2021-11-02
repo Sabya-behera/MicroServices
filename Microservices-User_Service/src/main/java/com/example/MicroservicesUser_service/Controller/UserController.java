@@ -1,7 +1,6 @@
 package com.example.MicroservicesUser_service.Controller;
 import com.example.MicroservicesUser_service.Model.User;
 import com.example.MicroservicesUser_service.Service.UserService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -9,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/get")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -34,8 +33,10 @@ public class UserController {
 //    {
 //        return userService.save(user);
 //    }
+
+
 //Rest template made sure that there is a communication between two services
-    @HystrixCommand(fallbackMethod = "welcomeFallBack")
+//    @HystrixCommand(fallbackMethod = "welcomeFallBack")
     @GetMapping("/{userId}")
     public User getUser(@PathVariable("userId") Long userId )
     {
@@ -48,8 +49,11 @@ public class UserController {
 
     //First connect to user service then through restTemplate connect through another service
 
-    public String welcomeFallBack()
-    {
-        return "Welcome to FallBack Method";   //Here we can return some different service as well
-    }
+//    public User welcomeFallBack(Long userId)
+//    {
+//        System.out.println("Welcome to Fallback method");
+//        //Here we can return some different service as well
+//        User user= new User();
+//        return user;
+//    }
 }

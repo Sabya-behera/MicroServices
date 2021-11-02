@@ -1,10 +1,10 @@
-package com.example.Microservices;
+package com.example.HystrixDashboard;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MicroservicesUserServiceApplicationTests {
+class HystrixDashboardApplicationTests {
 
 	@Test
 	void contextLoads() {
